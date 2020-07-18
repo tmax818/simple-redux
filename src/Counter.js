@@ -5,13 +5,23 @@ class Counter extends Component {
     count: 0,
   };
 
+  onCounterInc = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  onCounterDec = () => {
+    this.setState((prevState) => ({
+      count: prevState.count - 1,
+    }));
+  };
+
   render() {
     return (
       <div>
         Count: {this.state.count}
         <br />
-        <button>+</button>
-        <button>-</button>
+        <button onClick={this.onCounterInc}>+</button>
+        <button onClick={this.onCounterDec}>-</button>
       </div>
     );
   }
