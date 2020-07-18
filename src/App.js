@@ -1,33 +1,28 @@
 import React from "react";
 import "./App.css";
-
+import { connect } from "react-redux";
 import Counter from "./Counter";
+import { inc, dec } from "./Actions";
+
+const mapStateToProps = (state) => {
+  return { count: state.count };
+};
+
+const mapDispatchToProps = { inc, dec };
 
 class App extends React.Component {
-  state = {
-    count: 0,
-  };
-
-  onCounterInc = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
-
-  onCounterDec = () => {
-    this.setState((prevState) => ({
-      count: prevState.count - 1,
-    }));
-  };
   render() {
+    console.log(this.props);
     return (
       <div className="App">
         <Counter
-          count={this.state.count}
-          inc={this.onCounterInc}
-          dec={this.onCounterDec}
+          count={this.props.count}
+          inc={this.props.inc}
+          dec={this.props.dec}
         />
       </div>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
