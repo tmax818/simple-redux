@@ -1,12 +1,12 @@
 import React from "react";
 
-const Counter = (props) => {
+const Counter = ({ count, inc, dec }) => {
   return (
     <div>
-      Count: {props.count}
+      Count: {count}
       <br />
-      <button onClick={props.inc}>+</button>
-      <button onClick={props.dec}>-</button>
+      <button onClick={inc}>+</button>
+      <button onClick={dec}>-</button>
     </div>
   );
 };
