@@ -5,6 +5,8 @@ export const Reducer = (state = { count: 0 }, action) => {
       return { count: state.count + 1 };
     case "DEC":
       return { count: state.count - 1 };
+    case "RESET":
+      return { count: action.payload };
     default:
       return state;
   }

@@ -2,13 +2,13 @@ import React from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import Counter from "./Counter";
-import { inc, dec } from "./Actions";
+import { inc, dec, reset } from "./Actions";
 
 const mapStateToProps = (state) => {
   return { count: state.count };
 };
 
-const mapDispatchToProps = { inc, dec };
+const mapDispatchToProps = { inc, dec, reset };
 
 class App extends React.Component {
   render() {
@@ -19,6 +19,7 @@ class App extends React.Component {
           count={this.props.count}
           inc={this.props.inc}
           dec={this.props.dec}
+          reset={this.props.reset}
         />
       </div>
     );
